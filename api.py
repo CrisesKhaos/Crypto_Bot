@@ -23,8 +23,8 @@ class getPrices:
         try:
             response = session.get(url, params=parameters)
             data = json.loads(response.text)
-            price = data['data']["BTC"]['quote']['USD']['price']
+            price = data['data'][crypto]['quote']['USD']['price']
             print(price)
-            return price
+            return int(price)
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             print(e)
