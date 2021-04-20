@@ -11,6 +11,7 @@ class getPrices:
         parameters = {
             'symbol': crypto,
             'convert': 'USD'
+            
         }
         headers = {
             'Accepts': 'application/json',
@@ -25,6 +26,6 @@ class getPrices:
             data = json.loads(response.text)
             price = data['data'][crypto]['quote']['USD']['price']
             print(price)
-            return int(price)
+            return price
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             print(e)
